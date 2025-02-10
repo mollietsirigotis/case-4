@@ -1,8 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 @font-face {
     font-family: myFont;
     src: url(/fonts/HARRYP__.TTF);
 }
+
+:root {
+    --gryffindor-yellow: #F3BF1B;
+    --gryffindor-dark-red: #420504;
+    --gryffindor-red: #4D0506;
+
+    --hufflepuff-light-yellow: #F3DE0B;
+    --hufflepuff-dark-yellow: #B99F2E;
+    --hufflepuff-black: #0C0D08;
+
+    --slytherin-dark-green: #234723;
+    --slytherin-green: #25581F;
+
+    --ravenclaw-dark-blue: #04121B;
+    --ravenclaw-blue: #0B304A;
+    --ravenclaw-brown: #A67A53;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -11,30 +30,39 @@
 
 body {
     display: flex;
-    align-items: center;
     justify-content: center;
-
-    width: 100%;
-    height: 100dvh;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    background: url("/img/hogwarts-3476786_1920.png") no-repeat center center;
     background-color: #131200;
-
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
     color: white;
-    background-image: url("/img/hogwarts-3476786_1920.png");
+    overflow: hidden;
+    /* No scrolling */
 }
 
-.container {
+#start-page {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    height: 40rem;
-
-    padding: 2rem 10rem 0 10rem;
-    /* border: 1px solid white; */
-    border-radius: 2rem;
-
-    /* background: lightgray; */
     text-align: center;
+    z-index: 1;
+    min-height: 100vh;
+    /* Take full height of the screen */
+    width: 100%;
+    /* Start page takes the full width */
 }
+
+nav {
+    display: flex;
+    position: absolute;
+    margin: 0;
+    top: 0px;
+}
+
 
 h1 {
     margin: 5rem 0 1rem 0;
@@ -55,15 +83,178 @@ input {
     text-transform: uppercase;
 }
 
-#housename {
+#house-search {
     margin: 3rem 0 2rem 0;
     border: none;
     padding: 1rem;
     width: 20rem;
 }
 
-#button {
+#search-button {
     padding: 1rem 2rem;
+    width: 8rem;
+    height: 7rem;
     cursor: pointer;
-    border: 3px solid #EDC664;
+    background-image: url('/img/wand3.png');
+    border: none;
+    background-repeat: no-repeat;
+    rotate: 110deg;
+    background-size: 100% 100%;
+    background-color: #474D73;
+}
+
+#search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#error-message {
+    margin-top: 1rem;
+    font-family: 'aboreto', 'sans-serif';
+}
+
+/* Styling for character feed */
+#character-feed {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    margin-top: 2rem;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.gryffindor,
+.slytherin,
+.hufflepuff,
+.ravenclaw {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: auto;
+}
+
+/* Styling for Gryffindor character feed */
+.gryffindor {
+    background: var(--gryffindor-dark-red);
+    color: white;
+    text-align: center;
+}
+
+
+.gryffindor .character-card {
+    background-color: var(--gryffindor-red);
+}
+
+.gryffindor .character-card h3 {
+    color: var(--gryffindor-yellow);
+}
+
+/* Styling for Slytherin character feed */
+
+.slytherin {
+    background: var(--slytherin-dark-green);
+}
+
+.slytherin .character-card {
+    background: var(--slytherin-green);
+}
+
+/* Styling for Hufflepuff character feed */
+
+.hufflepuff {
+    background: var(--hufflepuff-dark-yellow);
+}
+
+.hufflepuff .character-card {
+    background: var(--hufflepuff-light-yellow);
+}
+
+.hufflepuff .character-card h3,
+.hufflepuff .character-card p {
+    color: var(--hufflepuff-black);
+}
+
+/* Styling for Ravenclaw character feed */
+
+.ravenclaw {
+    background: var(--ravenclaw-dark-blue);
+}
+
+.ravenclaw .character-card {
+    background: var(--ravenclaw-blue);
+}
+
+.ravenclaw .character-card h3 {
+    color: var(--ravenclaw-brown);
+}
+
+/* Character Card Styling */
+.character-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.character-card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.character-card img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.character-card h3 {
+    margin-top: 1rem;
+    font-size: 2rem;
+    font-family: myFont;
+}
+
+.character-card p {
+    font-size: 1em;
+    margin: 5px 0;
+}
+
+/* Styling for mobile */
+
+@media screen and (max-width: 480px) {
+
+    #character-feed {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Smaller text for smaller screens */
+
+    h1 {
+        font-size: 4.3rem;
+    }
+
+    p {
+        font-size: 1.1rem;
+    }
+
+    #house-search {
+        width: 15rem;
+    }
+
+    #search-button {
+        width: 6rem;
+    }
+
+
 }
