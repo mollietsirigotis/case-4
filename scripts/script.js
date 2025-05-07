@@ -24,6 +24,9 @@ function buttonClick(e) {
     // Add the class of the selected house to the body
     document.body.classList.add(house.toLowerCase());
 
+    const houseTitle = document.getElementById("house-title");
+    houseTitle.textContent = `${house.charAt(0).toUpperCase() + house.slice(1)} students`;
+
     // Fetch characters from Harry Potter API
     fetch("https://hp-api.onrender.com/api/characters")
 

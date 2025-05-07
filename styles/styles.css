@@ -139,6 +139,11 @@ footer p {
     font-size: 1rem;
 }
 
+#house-title {
+    font-size: 6rem;
+    margin: 0 0 1rem 0;
+}
+
 /* Styling for character feed */
 #character-feed {
     display: grid;
@@ -161,15 +166,19 @@ footer p {
     align-items: center;
     flex-direction: column;
     overflow: auto;
+    text-align: center;
 }
+
 
 /* Styling for Gryffindor character feed */
 .gryffindor {
     background: var(--gryffindor-dark-red);
     color: white;
-    text-align: center;
 }
 
+.gryffindor h1 {
+    color: var(--gryffindor-yellow);
+}
 
 .gryffindor .character-card {
     background-color: var(--gryffindor-red);
@@ -179,7 +188,9 @@ footer p {
     color: var(--gryffindor-yellow);
 }
 
+
 /* Styling for Slytherin character feed */
+
 
 .slytherin {
     background: var(--slytherin-dark-green);
@@ -190,6 +201,10 @@ footer p {
 }
 
 /* Styling for Hufflepuff character feed */
+
+.hufflepuff h1 {
+    color: var(--hufflepuff-black);
+}
 
 .hufflepuff {
     background: var(--hufflepuff-dark-yellow);
@@ -208,6 +223,10 @@ footer p {
 
 .ravenclaw {
     background: var(--ravenclaw-dark-blue);
+}
+
+.ravenclaw h1 {
+    color: var(--ravenclaw-brown);
 }
 
 .ravenclaw .character-card {
