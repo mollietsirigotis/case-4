@@ -33,7 +33,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 100%;
+    min-height: 100vh;
     background: url("/img/hogwarts-3476786_1920.png") no-repeat center center;
     background-color: #131200;
     background-size: cover;
@@ -201,6 +201,7 @@ footer {
 
 footer p {
     font-size: 1rem;
+    margin: 0;
 }
 
 #house-title {
