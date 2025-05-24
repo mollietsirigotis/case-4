@@ -10,7 +10,13 @@
 
 <body>
 
-    <header><img src="img/image.png" id="hogwarts-logo" alt="Howgwarts logo"></header>
+    <header>
+        <nav>
+            <a href="#" onclick="location.reload();">
+                <img src="img/image.png" id="hogwarts-logo" alt="Hogwarts logo">
+            </a>
+        </nav>
+    </header>
 
     <div id="start-page">
 
@@ -18,18 +24,29 @@
             Harry Potter
         </h1>
         <p>
-            write your Hogwarts house of choice and <br>
+            Write your Hogwarts house of choice and <br>
             wave the wand to revelio the students
         </p>
         <form id="search-form">
-            <input type="text" id="house-search" name="house-search" placeholder="Enter housename here" required autocomplete="off">
+            <div class="input-with-info">
+                <input type="text" id="house-search" name="house-search" placeholder="Enter housename here" required
+                    autocomplete="off">
+
+                <span class="info-container">
+                    <span class="info-icon">i</span>
+                    <div class="tooltip">
+                        The Hogwarts houses are: Gryffindor, Slytherin,<br>
+                        Ravenclaw and Hufflepuff.<br>
+                        Choose one of them.
+                    </div>
+                </span>
+            </div>
+            <div id="error-message"></div>
+
             <input type="submit" value="" id="search-button">
         </form>
-
-        <div id="error-message"></div>
-        
     </div>
-    
+
     <h1 id="house-title"></h1>
     <div id="character-feed"></div>
 

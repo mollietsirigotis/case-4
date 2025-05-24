@@ -9,13 +9,13 @@ form.addEventListener("submit", buttonClick);
 function buttonClick(e) {
 
     // Prevents reloading the page
-    e.preventDefault();  
+    e.preventDefault();
 
     // Gets the house name entered by the user
-    const house = houseSearch.value.trim();  
+    const house = houseSearch.value.trim();
 
     if (!house || !["gryffindor", "slytherin", "hufflepuff", "ravenclaw"].includes(house.toLowerCase())) {
-        document.getElementById("error-message").textContent = "Please enter a valid Hogwarts house: Gryffindor, Slytherin, Hufflepuff, or Ravenclaw.";
+        document.getElementById("error-message").textContent = "Please enter a valid Hogwarts house, for example: Gryffindor, Slytherin, Hufflepuff, or Ravenclaw.";
         return;
     }
 
